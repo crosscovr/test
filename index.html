@@ -14,7 +14,6 @@
       import * as THREE from "three/webgpu";
       import { OrbitControls } from "three/addons/controls/OrbitControls.js";
       import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-      import { SkyMesh } from 'three/addons/objects/SkyMesh.js';
 
       // サイズを指定
       const width = 960;
@@ -32,7 +31,7 @@
 
       // シーンを作成
       const scene = new THREE.Scene();
-      scene.background = new THREE.Color(0x000000);
+      scene.background = new THREE.Color(ffffffff);
 
       // カメラを作成
       const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 10000);
@@ -45,9 +44,6 @@
       controls.update();
 
       // 平行光源を作成
-      const sky = new SkyMesh();
-sky.scale.setScalar( 10000 );
-scene.add( sky );
       // 上から照らす
       const directionalLight = new THREE.DirectionalLight(0xffffff);
       directionalLight.position.set(1, 1, 1);
@@ -61,7 +57,7 @@ scene.add( sky );
       // GLTF形式のモデルデータを読み込む
       const loader = new GLTFLoader();
       // GLTFファイルのパスを指定
-      const gltf = await loader.loadAsync("ToyCar.glb");
+      const gltf = await loader.loadAsync("solariumv5_norm.glb");
       // 読み込み後に3D空間に追加
       const model = gltf.scene;
       scene.add(model);
