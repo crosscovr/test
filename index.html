@@ -14,7 +14,7 @@
       import * as THREE from "three/webgpu";
       import { OrbitControls } from "three/addons/controls/OrbitControls.js";
       import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-      import { Sky } from 'three/addons/objects/Sky.js';
+      import { SkyMesh } from 'three/addons/objects/SkyMesh.js';
 
       // サイズを指定
       const width = 960;
@@ -45,7 +45,7 @@
       controls.update();
 
       // 平行光源を作成
-      const sky = new Sky();
+      const sky = new SkyMesh();
 sky.scale.setScalar( 10000 );
 scene.add( sky );
       // 上から照らす
